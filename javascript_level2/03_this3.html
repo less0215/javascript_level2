@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="버튼">버튼이에요</button>
+
+
+    <script>
+    var 사람 = {
+        name: '손흥민',
+        sayHi: function(){
+            console.log('안녕 나는 손흥민')
+        }
+      }
+      
+      사람.sayHi(); //안녕 나는 손흥민
+
+    var 자료 = { 
+    data : [1,2,3,4,5] 
+    };
+
+
+    자료.전부더하기 = function(){
+        let 합계 = 0;
+        자료.data.forEach(function(a){
+            합계 = 합계 + a;
+        });
+        console.log(합계);
+    };
+    자료.전부더하기();
+
+
+    document.getElementById('버튼').addEventListener('click', function(){
+    this.innerHTML
+    setTimeout(() => { console.log(this.innerHTML) }, 1000)
+    });
+
+    </script>
+
+</body>
+</html>
+
+
+<!-- 
+반복문이 들어간 숫자 계산은 변수를 활용한다. 
+
+-->
