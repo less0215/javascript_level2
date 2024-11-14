@@ -1,0 +1,53 @@
+<!--
+1. this의 값은 '함수가 어떻게 호출되었는지'에 따라 결정됩니다.
+
+2. 함수를 호출하는 2가지 방법과 각각의 this 값:
+    - 메소드로 호출: 오브젝트.메소드() 
+    => this는 '오브젝트'를 가리킴
+    
+    - 일반 함수로 호출: 함수()
+    => this는 '전역객체(window)'를 가리킴
+
+4. 내부함수()는 '오브젝트.내부함수()' 형태로 호출된 게 아니라
+    그냥 '내부함수()' 형태로 호출되었기 때문에
+    this는 window를 가리키게 됩니다.
+
+5. this는 함수가 어디에서 선언되었는지가 아니라,
+    어떤 방식으로 호출되었는지가 중요합니다!
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var 오브젝트 = {
+        이름들 : ['김', '이', '박'],
+        함수 : function(){
+            오브젝트.이름들.forEach(function(){
+                console.log(this)
+            });
+        }
+        };
+
+        오브젝트.함수();
+
+        var 오브젝트2 = {
+        이름들 : ['김', '이', '박'],
+        함수 : function(){
+            오브젝트.이름들.forEach(() => {
+                console.log(this)
+            });
+        }
+        };
+
+        오브젝트2.함수();
+
+    </script>
+</body>
+</html>
