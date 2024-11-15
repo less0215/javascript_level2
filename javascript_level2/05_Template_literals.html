@@ -1,0 +1,52 @@
+<!--
+백틱 쓰면 좋은 점
+- 엔터키 자유롭게 쳐도 됨
+- 변수를 문자 중간에 추가 간단하게 가능 
+
+
+함수 안에다가 백틱을 넣을 경우, 함수 파라미터 위치가 의미하는 바
+-- ``안에 있는 문자열을 array에 추출해 둠
+-- ``안에 있는 변수를 추출
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var pants = 20;
+        // var socks = 100;
+        // // console.log(`바지${pants} 양말${socks}`);
+
+        // function 해체분석기(문자, 변수, 변수2){
+        //     console.log(문자[1] + 변수 + 문자[0] + 변수2);
+        // };
+
+        // 해체분석기`바지${pants} 양말${socks}`
+
+
+        /*
+        해체분석기`바지${pants} 양말${socks}`; 
+        -> 바지다팔렸어요 양말100
+        */
+        var pants = 0;
+        var socks = 100;
+
+
+        // pants가 0인 경우, '바지다팔렸어요 양말100'
+        
+        function 해체분석기(문자, 변수1, 변수2){
+            console.log(`바지다팔렸어요 양말${변수2}`);
+        };
+        
+        해체분석기`바지${pants} 양말${socks}`;
+
+
+</script>
+</body>
+</html>
