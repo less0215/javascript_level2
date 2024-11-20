@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* 문제 1번 */
+        // <!-- 파라미터에 타입하고, 컬러 넣으면 객체 하나 만들어주는 클래스 -->
+
+        // class 개생성 {
+        //     constructor(견종, 색깔){
+        //         this.type = 견종;
+        //         this.color = 색깔;
+        //     }
+        // }
+
+        // var 강아지3 = new 개생성('불독', 'black');
+        // console.log(강아지3);
+
+
+        /* 문제 2번 */
+        // 고양이3 호출 했을 때 견종, 색깔, 나이 입력된 고양이3 만들어지게끔
+
+        // class 고양이생성 extends 개생성 {
+        //     constructor(견종, 색깔, 나이){
+        //         super(견종, 색깔);
+        //         this.age = 나이;
+        //     }
+        // }
+
+        // var 고양이3 = new 고양이생성('예삐', 'pink', 30);
+        // console.log(고양이3);
+
+
+        // 기존 클래스에 한살먹기() 함수 추가
+
+        // class 개생성 {
+        //     constructor(견종, 색깔){
+        //         this.type = 견종;
+        //         this.color = 색깔;
+        //     }
+        // }
+
+        // var 강아지3 = new 개생성('불독', 'black', 30);
+        // console.log(강아지3);
+
+        /* 문제 3번 */
+        // class 고양이생성 extends 개생성 {
+        //     constructor(견종, 색깔, 나이){
+        //         super(견종, 색깔);
+        //         this.age = 나이;
+        //     }
+        //     한살먹기(){
+        //         this.age += 1;
+        //         return this.age;
+        //     }
+        // }
+
+        // var 고양이3 = new 고양이생성('예삐', 'pink', 30);
+        // 고양이3.한살먹기();
+        // console.log(고양이3);
+
+        /* 문제 4번 */
+        // 클래스 이름은 유닛
+        // 공격력 5
+        // 체력 100
+        // 배틀포인트 함수
+        //     이 함수는 현재 공격력과 체력을 더하는 함수.
+        // 모든 함수에는 힐이라는 새터 있음
+
+        // 클래스에서 함수를 추가할 때는 컨스트럭터 밖에서 생성한다.
+        // 생성할 때는 펑션 같은 키워드는 안 쓰고 바로 함수명을 쓴다.
+        // getter를 쓸 때는 함수 내부에는 return이 있어야 한다.
+        // get은 함수 기능을 이용해 값을 추출할 때 사용하는 것이기 때문에, return이 있어야 한다.
+        // set은 만든 함수에 파라미터가 있어야 한다. set이 있는 목적은 기존 값을 만든 함수를 이용해 바꾸는 수정하는 작업을 할 때 사용하는 키워드이기 때문이다.
+
+
+        // class 유닛 {
+        //     constructor(){
+        //         this.공격력 = 5;
+        //         this.체력 = 100;
+        //     }
+        //     get battlePoint(){
+        //         return this.공격력 + this.체력;
+        //     }
+        //     set heal(숫자){
+        //         this.체력 += 숫자;
+        //     }
+        // }
+
+        // var 인스턴스 = new 유닛();
+        // console.log(인스턴스.battlePoint);
+        // 인스턴스.heal = 50;
+        // console.log(인스턴스.체력);
+
+
+        var data = {
+        odd: [],
+        even: [],
+        /* ...숫자들을 사용할 수 있는 이유는 setter함수 소괄호 안에 든 값을 배열에 가두기 위해서.*/
+        /* 배열에 가둔 이유는 이걸 하나씩 분류하기 위해서. forEach는 배열 대상으로 쓸 수 있는 반복문이어서.*/
+        setter함수: function(...숫자들) { 
+            숫자들.forEach((a) => { /* 화살표 함수 쓴 이유는 data 내에 있는 오드, 이븐을 가리키기 위해서. 화살표 함수 안 쓰면, window 객체를 가리키기 때문에 잘못된 방법.*/
+                if(a % 2 == 1) {   /* 2로 나눌 때 나머지가 1이 나오면 홀수 */
+                    this.odd.push(a);
+                } else {
+                    this.even.push(a);
+                }
+            });
+        },
+        get getter함수() {
+            /* 1. 스프레드 오퍼레이터를 이용해서 배열에 있는 값을 풀어해친다. 2. 푼 결과를 다시 대괄호로 감싼다 3. sort()는 배열 대상으로 쓸 수 있는 함수이기 때문에.*/
+            return [...this.odd, ...this.even].sort()
+        }
+    };
+
+    data.setter함수(1,2,3,4,5);
+
+    console.log(data.getter함수);  
+
+        
+
+
+
+    </script>
+</body>
+</html>
