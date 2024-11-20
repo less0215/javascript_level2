@@ -1,0 +1,54 @@
+<!--
+컨스트럭터란?
+오브젝트 객체를 여러개 만들 때 사용하는 문법.
+function 키워드로 함수 만들듯이 만들면 됨. 그런데 일반 함수 만들 때와 차이가 있음.
+function 안에는 this 키워드가 있어야 함. 그리고 함수명을 호출할 때 함수명 앞에 new 키워드를 써야 함.
+이 두 가지가 모두 있을 때 '컨스트럭터 문법을 사용했다'라고 할 수 있음.
+
+
+컨스트럭터 동작 원리는?
+1. new를 쓰면 빈 오브젝트 객체가 만들어진다. {}
+2. this가 new로 만든 빈 객체를 가리킨다. (new가 없다면, this는 window를 가리킨다)
+3. 'this.name = 상품명;'은 'new로 만든 빈 객체에 키가 name이고, 값이 상품명인 요소를 넣어줘'라고 하는 것과 같다.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+    //    기계(상품명, 가격);
+    //    위와 같이 입력하면 상품명과 가격이 객체형태로 나올 수 있게끔해라.
+    function 기계(상품명, 가격){
+        this.name = 상품명;
+        this.price = 가격;
+    };
+
+    let 상품1 = new 기계('shirts', 50000);
+    let 상품2 = new 기계('pants', 50000);
+    console.log(상품1);
+    console.log(상품2);
+
+
+    // product1.부가세(500);
+    // 위와 같이 입력하면, 콘솔창에 5000이 출력되어야 함.
+    function 기계(상품명, 상품가격){
+        this.name = 상품명;
+        this.price = 상품가격;
+        this.부가세 = function(){
+             console.log(this.price * 0.1);
+        };
+    };
+
+    let product1 = new 기계('shirts', 50000);
+    product1.부가세();
+
+    </script>
+</body>
+</html>
